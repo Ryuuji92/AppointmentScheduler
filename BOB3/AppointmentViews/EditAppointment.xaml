@@ -1,0 +1,70 @@
+﻿<Window x:Class="BOB3.EditAppointment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BOB3"
+      mc:Ignorable="d"       
+      Title="Appointment" d:DesignHeight="345" d:DesignWidth="460" Height="345" Width="460" Background="WhiteSmoke" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Canvas>
+        <TextBlock Name="pageTitle" FontSize="25" Margin="10,0,0,10">Edit Appoitnment</TextBlock>
+
+            <StackPanel Orientation="Vertical" Height="253" Width="420" Margin="10,0,10,10" Canvas.Top="44">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" Margin="0,0,20,0">
+                        <TextBlock>Appointment Title</TextBlock>
+                    <TextBox Text="{Binding Title, Mode=TwoWay}" Width="200" MaxLength="255" TextWrapping="NoWrap"/>
+                        <TextBlock>Description</TextBlock>
+                    <TextBox Text="{Binding Description, Mode=TwoWay}" Height="40" Width="200" TextWrapping="Wrap" MaxLength="350" />
+                        <TextBlock>Location</TextBlock>
+                    <TextBox Text="{Binding Location, Mode=TwoWay}" Height="34" Width="200" MaxLength="350" TextWrapping="NoWrap" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock>Customer</TextBlock>
+                    <ComboBox Name="CustomerSelector" Width="200" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding CustomerName}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock>Contact</TextBlock>
+                    <TextBox Text="{Binding Contact, Mode=TwoWay}" Width="200" />
+                        <TextBlock>Appointment Type</TextBlock>
+                    <TextBox Text="{Binding AppointmentType, Mode=TwoWay}" />
+                        <TextBlock>Appointment URL</TextBlock>
+                        <TextBox Text="{Binding AppointmentURL, Mode=TwoWay}" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" Margin="0,0,20,0">
+                        <TextBlock>Start Date</TextBlock>
+                        <DatePicker Name="StartSelect" SelectedDate="{Binding Start, Mode=TwoWay}" SelectedDateChanged="StartSelect_SelectedDateChanged" Width="200" />
+                        <TextBlock>Start Time</TextBlock>
+                    <ComboBox Name="StartTime" Width="200" SelectionChanged="StartTime_SelectionChanged" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=., StringFormat=t}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock>End Time</TextBlock>
+                    <ComboBox Name="EndTime" ItemsSource="{Binding availableEnd}" Width="200" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=., StringFormat=t}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
+                    <Button Name="Cancel"  Content="Cancel" Click="Cancel_Click" Width="50" Margin="5,0" />
+                    <Button Name="Save"  Content="Save" Click="Save_Click" Width="50" />
+                </StackPanel>
+            </StackPanel>
+        </Canvas>
+</Window>

@@ -1,0 +1,12 @@
+﻿<Window x:Class="BOB3.AppointmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BOB3"
+        mc:Ignorable="d"
+        Title="Appointment" d:DesignHeight="325" d:DesignWidth="440">
+    <Grid>
+        
+    </Grid>
+</Window>

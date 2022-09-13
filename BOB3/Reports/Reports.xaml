@@ -1,0 +1,18 @@
+﻿<Window x:Class="BOB3.Reports"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BOB3"
+        mc:Ignorable="d"
+        Title="Reports" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Canvas>
+        <StackPanel Canvas.Left="290" Canvas.Top="143">
+            <TextBlock FontSize="15" FontWeight="DemiBold">Please select a date and a report</TextBlock>
+            <DatePicker Name="DateSelector" Margin="0,5"/>
+            <Button Name="AppointmentTypesBtn" Content="Number of Appointment Types by Month" Click="AppointmentTypesBtn_Click" Margin="0,5" />
+            <Button Name="ConsultantSchedulesBtn" Content="Consultant Schedules" Click="ConsultantSchedulesBtn_Click" Margin="0,5"/>
+            <Button Name="AppointmentsByDayBtn" Content="All Apointments By Day" Click="AppointmentsByDayBtn_Click" Margin="0,5"/>
+        </StackPanel>
+    </Canvas>
+</Window>

@@ -1,0 +1,34 @@
+﻿<Page x:Class="BOB3.CalendarView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BOB3"
+      mc:Ignorable="d" 
+      d:DesignHeight="680" d:DesignWidth="1080"
+      Title="View Schedule" Background="WhiteSmoke" Loaded="Page_Loaded">
+
+    <Canvas>
+        <StackPanel Orientation="Horizontal" Height="25" Canvas.Left="50" Canvas.Top="20">
+            <DatePicker Name="SelectedMonth" Width="130" Margin="0,0,5,0" SelectedDateChanged="SelectedMonth_SelectedDateChanged"/>
+            <Button Name="CalendarViewBtn" Content="View By Week" Width="110" Click="CalendarViewBtn_Click" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="25" Canvas.Right="50" Canvas.Top="20">
+            <Button Name="CustomerBtn" Content="View Customers" Width="110" Margin="0,0,5,0" Click="CustomerBtn_Click" />
+            <Button Name="ReportsBtn" Content="View Reports" Width="110" Click="ReportsBtn_Click" />
+        </StackPanel>
+        <DataGrid Name="Calendar" ItemsSource="{Binding appointments}" Height="560" Width="980" Canvas.Left="50" Canvas.Top="50" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Title}" Header="Appointment" Width="*" />
+                <DataGridTextColumn Binding="{Binding Start}" Header="Starts" Width="*" />
+                <DataGridTextColumn Binding="{Binding End}" Header="Ends" Width="*" />
+                <DataGridTextColumn Binding="{Binding CustomerName}" Header="Customer" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" Height="25" Canvas.Right="50" Canvas.Bottom="20">
+            <Button Name="ViewAppointmentBtn" Content="View Appointment" Width="110" Margin="0,0,5,0" Click="ViewAppointmentBtn_Click"/>
+            <Button Name="AddAppointmentBtn" Content="Add Appointment" Width="110" Margin="0,0,5,0" Height="25" Click="AddAppointmentBtn_Click" />
+            <Button Name="DeleteAppoitnmentBtn" Content="Delete" Width="70" Click="DeleteAppoitnmentBtn_Click" />
+        </StackPanel>
+    </Canvas>
+</Page>

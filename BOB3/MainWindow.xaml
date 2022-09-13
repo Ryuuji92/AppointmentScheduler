@@ -1,0 +1,19 @@
+﻿<Window x:Class="BOB3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BOB3"
+        mc:Ignorable="d"
+        Title="Scheduler" Height="700" Width="1095" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Canvas>
+        <StackPanel Width="200" Canvas.Left="464" Canvas.Top="264">
+            <TextBlock Name="UsernameTitle" FontSize="18" Margin="5">Username</TextBlock>
+            <TextBox Name="UsernameField" FontSize="16" Width="175" />
+            <TextBlock Name="PasswordTitle" FontSize="18" Margin="5">Password</TextBlock>
+            <PasswordBox Name="PasswordField" FontSize="16" Width="175" />
+            <Button Name="LoginBtn" Content="Login" FontSize="16" Margin="0,10,0,0" Padding="10,0" HorizontalAlignment="Right" Click="LoginBtn_Click" />
+        </StackPanel>
+
+    </Canvas>
+</Window>

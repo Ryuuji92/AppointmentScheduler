@@ -1,0 +1,35 @@
+﻿<Page x:Class="BOB3.CalendarView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BOB3"
+      mc:Ignorable="d" 
+      d:DesignHeight="680" d:DesignWidth="1080"
+      Title="View Schedule" Background="WhiteSmoke" >
+
+    <Canvas>
+        <StackPanel Orientation="Horizontal" Height="25" Canvas.Left="50" Canvas.Top="20">
+            <DatePicker Name="SelectedMonth" Width="130" Margin="0,0,5,0" SelectedDateChanged="SelectedMonth_SelectedDateChanged"/>
+            <Button Name="CalendarViewBtn" Content="View By Week" Width="110" Click="CalendarViewBtn_Click" />
+        </StackPanel>
+        <TextBlock Name="PageHeading" FontSize="25" Canvas.Left="461" Canvas.Top="12">Heading</TextBlock>
+        <StackPanel Orientation="Horizontal" Height="25" Canvas.Right="50" Canvas.Top="20">
+            <Button Name="CustomerBtn" Content="View Customers" Click="CustomerBtn_Click" Width="110" Margin="0,0,5,0" />
+            <Button Name="ReportsBtn" Content="View Reports" Click="ReportsBtn_Click" Width="110" />
+        </StackPanel>
+        <DataGrid Name="Calendar" ItemsSource="{Binding}" Height="560" Width="980" Canvas.Left="50" Canvas.Top="50" HeadersVisibility="Column"  SelectionMode="Single" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserAddRows="false" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Title}"  Header="Appointment" Width="*" />
+                <DataGridTextColumn Binding="{Binding Start, StringFormat=f}" Header="Starts" Width="*" />
+                <DataGridTextColumn Binding="{Binding End, StringFormat=f}" Header="Ends" Width="*" />
+                <DataGridTextColumn Binding="{Binding CustomerName}" Header="Customer" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" Height="25" Canvas.Right="50" Canvas.Bottom="20">
+            <Button Name="ViewAppointmentBtn" Content="View Appointment" IsEnabled="{Binding ElementName=Calendar, Path=SelectedItems.Count}"  Width="110" Margin="0,0,5,0" Click="ViewAppointmentBtn_Click"/>
+            <Button Name="AddAppointmentBtn" Content="Add Appointment" Width="110" Margin="0,0,5,0" Height="25" Click="AddAppointmentBtn_Click" />
+            <Button Name="DeleteAppoitnmentBtn" Content="Delete" IsEnabled="{Binding ElementName=Calendar, Path=SelectedItems.Count}" Click="DeleteAppoitnmentBtn_Click" Width="70" />
+        </StackPanel>
+    </Canvas>
+</Page>
